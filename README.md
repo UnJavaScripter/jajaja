@@ -7,6 +7,7 @@ WTF? Is a web server that listens to a web socket and laughs on the server when 
 - nodejs
 
 **ALSA stuff**
+
 The [`speaker`](https://www.npmjs.com/package/speaker) package requires:
 
 `sudo apt-get install libasound2-dev`
