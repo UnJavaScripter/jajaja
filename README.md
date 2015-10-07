@@ -24,3 +24,9 @@ Run the `index.html` file (make sure your server address is correct)
  or
  
 Create a client of yout own that uses web sockets to send a `'jajaja'` event
+
+
+### Hassle free installation
+1. Open a terminal & cd into the folder you want the server
+2. Run:
+`curl -#L https://github.com/UnJavaScripter/jajaja/tarball/master | tar -xzv && cd UnJavaScripter-jajaja-* && npm install && node app.js`
