@@ -58,21 +58,25 @@ server.listen(port, function () {
 });
 
 
+app.get('/lol', function(req, res) {
+  res.send('loool');
+  playTheSound();
+});
 app.use(express.static(__dirname + ''));
-
-
-
-io.on('connection', function (socket) {
-  	socket.on('jajaja', function (data) {
+function playTheSound(){
     if(!playing){
         playing = true;
         var inputStream = fs.createReadStream(song);
         playStream(inputStream);
         console.log('loool');
     }
+}
 
 
-  });
+io.on('connection', function (socket) {
+  	socket.on('jajaja', function (data) {
+        playTheSound();
+    });
 
 });
 
