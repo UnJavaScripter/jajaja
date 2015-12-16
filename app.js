@@ -32,13 +32,16 @@ function playStream(input, options) {
     var decoder = lame.Decoder();
     options = options || {};
     var v = new volume();
+    
     if (options.volume) {
         v.setVolume(options.volume);
     }
+
     var speaker = new Speaker(audioOptions);
     speaker.on('finish', function() {
         playing = false;
     });
+
     function start() {
         v.pipe(speaker);
         decoder.pipe(v);
@@ -47,22 +50,7 @@ function playStream(input, options) {
     }
     start();
 }
-///////////////////////////////////////////////////////////////
 
-
-///////////////////////////////////////////////////////////////
-// Server
-// ______________________________________________________________
-server.listen(port, function () {
-  console.log('Server listening at port %d', port);
-});
-
-
-app.get('/lol', function(req, res) {
-  res.send('loool');
-  playTheSound();
-});
-app.use(express.static(__dirname + ''));
 function playTheSound(){
     if(!playing){
         playing = true;
@@ -73,11 +61,28 @@ function playTheSound(){
 }
 
 
+///////////////////////////////////////////////////////////////
+// Server
+// ______________________________________________________________
+server.listen(port, function () {
+    console.log('Server ready to laugh at port %d', port);
+});
+
+app.use(express.static(__dirname + ''));
+
+// Http route
+app.get('/lol', function(req, res) {
+    res.send('loool');
+    playTheSound();
+});
+
+
+
+// Socket.io
 io.on('connection', function (socket) {
   	socket.on('jajaja', function (data) {
         playTheSound();
     });
-
 });
 
 

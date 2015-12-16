@@ -1,7 +1,8 @@
 :octocat:
 # jajaja
 
-WTF? Is a web server that listens to a web socket and laughs on the server when an event is received.
+WTF?
+It ss a web server that listens to an http request (http://localhost:1337/lol by default) or web socket event and laughs on the server when an event is received.
 
 ### Requirements
 - nodejs
@@ -19,11 +20,11 @@ The [`speaker`](https://www.npmjs.com/package/speaker) package requires:
 `node app.js`
 
 ### Client side
-Run the `index.html` file (make sure your server address is correct)
+Run the `index.html` file
  
  or
  
-Create a client of yout own that uses web sockets to send a `'jajaja'` event
+Create a client of yout own that uses web sockets to send a `'jajaja'` event to ws://localhost:1337
 
 
 ### Hassle free installation
